@@ -13,7 +13,7 @@ The purpose of project is to create stack OLPT by using
   - APPS JAVA
 
 ## VAGRANT
-
+[CREATE HOSTS](vagrant/README.md)
 
 ## ANSIBLE
 
