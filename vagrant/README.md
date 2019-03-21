@@ -6,6 +6,17 @@ PRE REQUIS
 * INSTALL VIRUALBOX
 * INSTALL VAGRANT
 
+## SET HOSTS
+
+vim /etc/hosts
+
+``` bash
+# kcdjr
+192.168.0.170 dadm.vhl.com dadm
+192.168.0.171 dwk1.vhl.com dwk1
+192.168.0.172 dwk2.vhl.com dwk2
+```
+
 ## PROVISIONNING SERVER
 
 ``` bash
