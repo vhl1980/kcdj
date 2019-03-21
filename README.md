@@ -11,3 +11,14 @@ The purpose of project is to create stack OLPT by using
   - CASSANDRA 
   - REDIS
   - APPS JAVA
+
+## VAGRANT
+
+
+## ANSIBLE
+
+
+## DOCKER
+
+
+
