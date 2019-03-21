@@ -1,5 +1,5 @@
 # KCDJR
-Stack OLPT - KAFKA - CASSANDRA - DOCKER - JAVA
+**Stack OLPT** : KAFKA - CASSANDRA - DOCKER - JAVA
 
 The purpose of project is to create stack OLPT by using 
 
