@@ -1,0 +1,7 @@
+---
+ansible_become: yes
+ansible_become_method: sudo
+
+# PATH LOCAL
+kcdjr_home: "/home/ansible/project/kcdjr/ansible"
+kcdjr_package: "{{ kcdjr_home }}/package"
