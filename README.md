@@ -41,10 +41,10 @@ ssh-keygen
 cd ~
 vim .bashrc
 # add end of file
-source .KCDJR
+source .kcdjr
 
-touch .KCDJR
-# add lines in .KCDJR
+touch .kcdjr
+# add lines in .kcdjr
 #!/bin/bash
 # VAR ENV FOR PROJECT KCDJR
 export KCDJR_HOME="/home/ansible/project/kcdjr"
