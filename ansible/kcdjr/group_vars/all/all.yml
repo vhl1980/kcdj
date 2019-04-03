@@ -5,3 +5,8 @@ ansible_become_method: sudo
 # PATH LOCAL
 kcdjr_home: "/home/ansible/project/kcdjr/ansible"
 kcdjr_package: "{{ kcdjr_home }}/package"
+
+# DOCKER
+docker_version: "docker-ce-18.09.4"
+docker_ce_cli_version: "docker-ce-cli-18.09.4"
+containerd_io: "containerd.io-1.2.5-3.1.el7"

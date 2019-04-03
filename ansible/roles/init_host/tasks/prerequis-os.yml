@@ -1,0 +1,68 @@
+---
+
+- hosts: all
+  tasks:
+    - name: install apps
+      yum:
+        name: "{{ item }}"
+        state: latest
+      loop:
+         - vim
+         - curl
+         - ntp
+  tags: prerequis_apps_install
+
+- hosts: all
+  tasks:
+    - name: install prequis docker
+      yum:
+        name: "{{ item }}"
+        state: latest
+      loop:
+         - yum-utils
+         - device-mapper-persistent-data
+         - lvm2
+  tags: prerequis_docker
+
+- hosts: all
+  tasks:
+    - name: Add Docker repo
+      get_url:
+        url: https://download.docker.com/linux/centos/docker-ce.repo
+        dest: /etc/yum.repos.d/docer-ce.repo
+  
+    - name: Enable Docker Edge repo
+      ini_file:
+        dest: /etc/yum.repos.d/docer-ce.repo
+        section: 'docker-ce-edge'
+        option: enabled
+        value: 0
+  tags: repos_docker
+
+- hosts: all
+  tasks:
+    - name: install docker
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop:
+         - "{{docker_version}}"
+         - "{{docker_ce_cli_version}}"
+         - "{{containerd_io}}"
+  tags: install_docker
+
+- hosts: all
+  tasks:
+    - name: install python pip
+      yum:
+        name: "{{ item }}"
+        state: latest
+      loop:
+         - epel-release
+         - python-pip
+
+    - name: install docker compose
+      pip:
+        name: docker-compose
+  tags: install_docker_compose
+
