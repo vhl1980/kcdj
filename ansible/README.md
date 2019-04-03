@@ -132,6 +132,7 @@ containerd_io: "containerd.io-1.2.5-3.1.el7"
 ### Install docker
 
 cd KCDJR_ANSIBLE
+
 ansible-playbook -i $KCDJR_ANSIBLE/kcdjr /home/ansible/project/kcdjr/ansible/roles/init_host/tasks/prerequis-os.yml
 
 
