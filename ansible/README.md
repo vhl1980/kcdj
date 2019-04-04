@@ -135,4 +135,23 @@ cd KCDJR_ANSIBLE
 
 ansible-playbook -i $KCDJR_ANSIBLE/kcdjr /home/ansible/project/kcdjr/ansible/roles/init_host/tasks/prerequis-os.yml
 
+### Service Docker
+
+
+``` bash
+# Create space services
+cd $KCDJR_ANSIBLE/roles
+# create folders like below
+.   
+└── services
+    ├── tasks
+    └── templates
+
+# create tasks services docker - retrieve file from git
+cd services/tasks
+vim docker_services.yaml
+```
+**Dont forget TAG**
+
+ansible-playbook -i $KCDJR_ANSIBLE/kcdjr $KCDJR_ANSIBLE/roles/services/tasks/docker_services.yaml --tags [start | stop | start]
 

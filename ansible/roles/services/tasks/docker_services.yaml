@@ -1,0 +1,25 @@
+---
+
+- hosts: all
+  tasks:
+    - name: start dockers
+      service:
+        name: docker
+        state: started
+  tags: start
+
+- hosts: all
+  tasks:
+    - name: start dockers
+      service:
+        name: docker
+        state: stopped
+  tags: stop
+
+- hosts: all
+  tasks:
+    - name: start dockers
+      service:
+        name: docker
+        state: restarted
+  tags: restart
