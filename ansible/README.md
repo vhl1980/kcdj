@@ -153,5 +153,5 @@ vim docker_services.yaml
 ```
 **Dont forget TAG**
 
-ansible-playbook -i $KCDJR_ANSIBLE/kcdjr $KCDJR_ANSIBLE/roles/services/tasks/docker_services.yaml --tags [start | stop | start]
+ansible-playbook -i $KCDJR_ANSIBLE/kcdjr $KCDJR_ANSIBLE/roles/services/tasks/docker_services.yaml --tags [start | stop | restart]
 
