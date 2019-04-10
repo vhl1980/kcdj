@@ -5,7 +5,7 @@ https://hub.docker.com/r/anapsix/alpine-java
 
 
 ``` bash
-cd /home/ansible/project/kcdjr/docker/alpine-java
+cd $KCDJR_HOME/docker/alpine-java
 docker build -t anapsix/alpine-java:jdk-1.8.201 .
 
 # TEST IMAGE
