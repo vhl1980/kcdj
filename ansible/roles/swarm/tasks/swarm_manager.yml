@@ -1,0 +1,38 @@
+---
+
+- hosts: dadm
+  tasks:
+    - name: docker_swarm
+      docker_swarm:
+        state: present
+        advertise_addr: "{{ ansible_default_ipv4.address }}"
+    - debug: var={{ ansible_default_ipv4.address }}  
+  tags: init_swarm
+
+- hosts: dadm
+  tasks:
+    - name: get worker token
+      shell: docker swarm join-token -q worker
+      register: worker_token
+    - debug: var=worker_token.stdout
+   # - debug: var=hostvars[inventory_hostname]['ansible_default_ipv4']['address']
+    - name: save token
+      set_fact: worker_token={{ worker_token.stdout }}
+  tags: worker_add
+
+- hosts: worker
+  tasks:
+  - debug: var=hostvars['dadm']['worker_token']
+  - debug: var=hostvars['dadm']['ansible_eth1']['ipv4']['address']
+  tags: worker_add
+
+- hosts: worker
+  tasks:
+    - name: join in cluster mode worker
+      docker_swarm:
+        state: join
+        advertise_addr: "{{ hostvars['dadm']['ansible_eth1']['ipv4']['address'] }}"
+        join_token: "{{ hostvars['dadm']['worker_token']  }}"
+        remote_addrs: "{{ hostvars['dadm']['ansible_eth1']['ipv4']['address'] }}:2377"
+  tags: worker_add
+
